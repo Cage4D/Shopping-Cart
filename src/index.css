@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -41,8 +42,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "";
+    src: url();
+}
+
 @theme {
     --font-clash: "Clash Display", "sans-serif";
+    --font-inter: "Inter", "sans-serif";
 }
 
 @keyframes slideIn {
@@ -55,7 +62,40 @@
     }
 }
 
+@keyframes infiniteGradient {
+    from {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    to {
+        background-position: 0% 50%;
+    }
+}
+
 
 .slide-in {
     animation: slideIn ease-out 1000ms forwards;
+}
+
+.gradientText {
+  display: inline-block;
+  color: transparent;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,   
+    #4f46e5,   
+    #7c3aed,   
+    #06b6d4    
+  );
+  background-size: 500% 500%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  animation: infiniteGradient 10s ease infinite alternate;
 }
