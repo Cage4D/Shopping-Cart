@@ -8,9 +8,8 @@ function NavBar() {
       </p>
       <div className="flex items-center gap-8">
         {["Home", "Shop", "Cart"].map((item) => (
-          <Link to={`${item === "Home" ? "/" : item }`}>
+          <Link to={`${item === "Home" ? "/" : item }`} key={item}>
             <p
-              key={item}
               className="relative
                     font-clash font-medium text-slate-700
                     cursor-pointer
