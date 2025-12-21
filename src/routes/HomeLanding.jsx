@@ -1,19 +1,19 @@
 import React from "react";
-import Typed from "typed.js"
+import Typed from "typed.js";
+import { MdAddShoppingCart } from "react-icons/md";
+import { FiGrid, FiShoppingCart } from "react-icons/fi";
 
 function HomeLanding() {
-  const [headingDone, setHeadingDone] = React.useState(false)
+  const [headingDone, setHeadingDone] = React.useState(false);
   const typedRef = React.useRef(null);
 
-
   React.useEffect(() => {
-
     if (!headingDone) return;
     const typed = new Typed(typedRef.current, {
       strings: [
         "A demo shopping cart.",
         "Built with React Router.",
-        "Powered by state management."
+        "Powered by state management.",
       ],
       typeSpeed: 30,
       backSpeed: 20,
@@ -21,29 +21,44 @@ function HomeLanding() {
       loop: true,
       smartBackspace: true,
       showCursor: true,
-      cursorChar: "|"
-    })
+      cursorChar: "|",
+    });
 
-    return (() => {
-      typed.destroy()
-    })
+    return () => {
+      typed.destroy();
+    };
   }, [headingDone]);
 
   return (
     <>
       <section className="flex flex-col items-center">
         <h1
-        className="text-7xl font-inter font-bold mt-25 slide-in"
-        onAnimationEnd={() => setHeadingDone(true)}>
-          <span className="text-slate-900">Welcome</span> to {" "}
-          <span
-            className="gradientText italic">
-            Shop.cart
-          </span>
+          className="text-7xl font-inter font-bold mt-25 slide-in"
+          onAnimationEnd={() => setHeadingDone(true)}
+        >
+          <span className="text-slate-900">Welcome to</span>{" "}
+          <span className="gradientText italic">Shop.cart</span>
         </h1>
         <p className="mt-4 md:mt-6 lg:mt-8 text-slate-600 text-lg md:text-xl font-inter">
           <span ref={typedRef}></span>
         </p>
+        <p className="mt-4 text-sm text-slate-400 md:text-base">Take a look at our store and see your cart in action!</p>
+      </section>
+      <section className="flex justify-center mt-15 gap-15">
+        <div className="flex items-center gap-2">
+          <FiGrid size={24} />
+          <span className="text-lg font-medium">Browse Products</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <MdAddShoppingCart size={24} />
+          <span className="text-lg font-medium">Add to Cart</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <FiShoppingCart size={24} />
+          <span className="text-lg font-medium">Cart</span>
+        </div>
       </section>
     </>
   );
