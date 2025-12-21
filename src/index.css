@@ -87,15 +87,19 @@
 
   background: linear-gradient(
     90deg,
-    #2563eb,   
-    #4f46e5,   
-    #7c3aed,   
-    #06b6d4    
+    #2563eb,
+    #4f46e5,
+    #7c3aed,
+    #a855f7,
+    #06b6d4,
+    #22d3ee,
+    #3b82f6,
+    #2563eb  
   );
   background-size: 500% 500%;
 
   background-clip: text;
   -webkit-background-clip: text;
 
-  animation: infiniteGradient 10s ease infinite alternate;
+  animation: infiniteGradient 15s ease infinite alternate;
 }
