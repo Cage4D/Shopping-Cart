@@ -1,8 +1,22 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
+import { useOutletContext } from "react-router";
 
 function ShoppingPage() {
   const [shopItems, setShopItems] = React.useState([]);
+  const { cart, setCart } = useOutletContext()
+
+  function addToCart({id, title, image, price, quantity}) {
+    const productInfo = {
+      id,
+      title,
+      image,
+      price,
+      quantity,
+    }
+    setCart([...cart, productInfo])
+  }
+
   React.useEffect(() => {
     async function getData() {
       try {
@@ -23,10 +37,12 @@ function ShoppingPage() {
         {shopItems.map(product => (
             <ProductCard 
             key={product.id}
+            id={product.id}
             image={product.image} 
             title={product.title}
             category={product.category}
-            price={product.price}/>
+            price={product.price}
+            addToCart={addToCart}/>
         ))}
     </section>
   );
