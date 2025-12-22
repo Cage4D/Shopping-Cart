@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductCard({ image, title, category, price }) {
+function ProductCard({ image, title, category, price, addToCart, id }) {
   const [numberOfItems, setNumberOfItems] = React.useState(0);
 
   function handleClick(event) {
@@ -48,7 +48,15 @@ function ProductCard({ image, title, category, price }) {
                 value="+"
                 onClick={handleClick}>+</button>
               </div>
-              <button className="bg-blue-800 text-white rounded-lg font-clash font-semibold tracking-wide px-2 py-1 hover:cursor-pointer">Add to Cart</button>
+              <button 
+              className="bg-blue-800 text-white rounded-lg font-clash font-semibold tracking-wide px-2 py-1 hover:cursor-pointer active:scale-95 transition-transform duration-150 ease-out"
+              onClick={() => addToCart({
+                id,
+                title,
+                image,
+                price,
+                quantity: numberOfItems,
+              })}>Add to Cart</button>
           </div>
       </div>
     </div>
