@@ -3,12 +3,12 @@ import NavBar from "../components/NavBar";
 import { Outlet } from "react-router";
 
 function Home() {
-  const [cart, setCart] = React.useState([])
+  const [cart, setCart] = React.useState([]);
 
   return (
     <>
-      <NavBar />
-      <Outlet context={{cart, setCart}}/>
+      <NavBar cart={cart} />
+        <Outlet context={{ cart, setCart }} />
     </>
   );
 }
