@@ -14,7 +14,7 @@ function Cart() {
   }
 
   return (
-    <section className="flex flex-col w-[60vw] mx-auto py-2">
+    <section className="flex flex-col w-full mx-auto py-2 px-1 md:w-[60vw]">
       <div className="font-clash font-bold border-b-2 border-slate-400 text-slate-700">
         <p className="w-full text-end text-xl tracking-wider">{`${
           cart.length
@@ -31,25 +31,25 @@ function Cart() {
           <img
             src={item.image}
             alt={item.title}
-            className="max-h-40 aspect-square object-contain"
+            className="max-h-30 aspect-square object-contain md:max-h-40"
           />
           <div className="flex flex-col justify-around w-full">
             <div className="flex justify-between items-start w-full">
-              <p className="font-semibold font-clash tracking-wider text-lg leading-tight max-w-[50ch]">
+              <p className="font-semibold font-clash tracking-wider text-md leading-tight max-w-[10ch] md:max-w-[50ch] md:text-lg">
                 {item.title}
               </p>
-              <p className="font-semibold font-clash">${item.price}</p>
+              <p className="font-semibold font-clash text-md md:text-lg">${item.price}</p>
             </div>
-            <div className="flex justify-between">
-              <p className="font-semibold font-clash">
+            <div className="flex justify-between items-center">
+              <p className="font-semibold font-clash text-md md:text-lg">
                 Quantity: {item.quantity}
               </p>
               <button
-                className="flex gap-1 font-clash font-semibold text-white bg-slate-800 rounded-lg h-min p-1.5"
+                className="flex gap-1 font-clash font-semibold items-center text-white bg-slate-800 rounded-lg h-8 p-1.5 md:h-min"
                 onClick={() => deleteItem(item.id)}
               >
                 <MdDelete size={24} />
-                <span>Remove</span>
+                <span className="text-md md:text-lg">Remove</span>
               </button>
             </div>
           </div>

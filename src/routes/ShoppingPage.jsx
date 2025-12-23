@@ -42,7 +42,7 @@ function ShoppingPage() {
   }, []);
 
   return (
-    <section className="flex flex-wrap gap-5 justify-center py-5">
+    <section className="flex flex-wrap flex-col gap-5 justify-center py-5 md:flex-row">
         {shopItems.map(product => (
             <ProductCard 
             key={product.id}

@@ -10,25 +10,25 @@ function ProductCard({ image, title, category, price, addToCart, id }) {
   }
 
   return (
-    <div className="flex items-center rounded-xl w-[40vw] gap-2 p-2 shadow-lg">
+    <div className="flex items-center rounded-xl w-full gap-2 pr-2 py-2 pl-1 shadow-lg overflow-hidden md:w-[40vw]">
       <img
         src={image}
         alt={title}
-        className="max-h-40 aspect-square object-contain"
+        className="max-h-30 aspect-square object-contain lg:max-h-40"
       />
       <div className="flex flex-col h-full w-full justify-around">
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-start">
-            <p className="font-semibold font-clash tracking-wider text-lg leading-tight max-w-[23ch]">
+            <p className="font-semibold font-clash tracking-wider leading-tight text-md lg:text-lg md:max-w-[23ch]">
               {title}
             </p>
-            <p className="font-semibold font-clash">${price}</p>
+            <p className="font-semibold font-clash text-md md:text-lg">${price}</p>
           </div>
           <p className="font-inter capitalize font-light text-slate-700 text-sm">
             {category}
           </p>
         </div>
-        <div className="flex justify-between justify-self-end mt-2">
+        <div className="flex justify-between justify-self-end mt-2 gap-1">
           <div className="border-2 rounded-sm h-8 w-20 p-1 border-slate-300 flex items-center justify-center">
             <button
               className="hover:bg-slate-300 w-full hover:rounded-l-xs"
@@ -60,7 +60,7 @@ function ProductCard({ image, title, category, price, addToCart, id }) {
             </button>
           </div>
           <button
-            className="bg-blue-800 text-white rounded-lg font-clash font-semibold tracking-wide px-2 py-1 hover:cursor-pointer active:scale-95 transition-transform duration-100 ease-out"
+            className="bg-blue-800 text-white rounded-lg font-clash font-semibold tracking-wide px-2 py-1 hover:cursor-pointer active:scale-95 transition-transform duration-100 ease-out h-8 text-sm whitespace-nowrap"
             onClick={() =>
               addToCart({
                 id,

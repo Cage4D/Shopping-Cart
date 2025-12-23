@@ -37,11 +37,11 @@ function NavBar({ cart }) {
     : 'before:opacity-0 before:scale-95'}`;
 
   return (
-    <nav className="flex justify-between pl-5 pr-8 py-2 items-center border-b-2 border-b-slate-200 h-[10vh]">
+    <nav className="flex justify-between pl-5 pr-4 py-2 items-center border-b-2 border-b-slate-200 h-[10vh] md:pr-8">
       <p className="text-2xl font-bold font-clash tracking-tight">
         Shop<span className="text-slate-400">.cart</span>
       </p>
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 md:gap-8">
         {["Home", "Shop", "Cart"].map((item) => (
           <Link to={`${item === "Home" ? "/" : item}`} key={item}>
             <p
