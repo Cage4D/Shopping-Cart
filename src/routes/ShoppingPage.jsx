@@ -4,17 +4,26 @@ import { useOutletContext } from "react-router";
 
 function ShoppingPage() {
   const [shopItems, setShopItems] = React.useState([]);
-  const { cart, setCart } = useOutletContext()
+  const { setCart } = useOutletContext()
 
   function addToCart({id, title, image, price, quantity}) {
-    const productInfo = {
-      id,
-      title,
-      image,
-      price,
-      quantity,
-    }
-    setCart([...cart, productInfo])
+    if (quantity === 0) return;
+    
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === id)
+
+      if(existingItem) {
+        return prevCart.map(item => 
+          item.id === id ? {...item, quantity: item.quantity + quantity} : item
+        )
+      }
+
+      return [
+        ...prevCart,
+        { id, title, image, price, quantity }
+      ]
+
+    })
   }
 
   React.useEffect(() => {
