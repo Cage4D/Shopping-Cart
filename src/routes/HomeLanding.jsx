@@ -33,18 +33,19 @@ function HomeLanding() {
     <>
       <section className="flex flex-col items-center">
         <h1
-          className="text-7xl font-inter font-bold mt-25 slide-in"
+          className="flex gap-0 flex-col items-center font-inter font-bold mt-15 slide-in md:flex-row md:gap-4 md:mt-25"
           onAnimationEnd={() => setHeadingDone(true)}
         >
-          <span className="text-slate-900">Welcome to</span>{" "}
-          <span className="gradientText italic">Shop.cart</span>
+          <p className="text-slate-900 text-[3.5rem] md:text-7xl">Welcome</p>
+          <p className="text-slate-900 text-[3.5rem] md:text-7xl">to</p>
+          <p className="gradientText italic text-[3.5rem] md:text-7xl">Shop.cart</p>
         </h1>
         <p className="mt-4 md:mt-6 lg:mt-8 text-slate-600 text-lg md:text-xl font-inter">
           <span ref={typedRef}></span>
         </p>
         <p className="mt-4 text-sm text-slate-400 md:text-base">Take a look at our store and see your cart in action!</p>
       </section>
-      <section className="flex justify-center mt-15 gap-15">
+      <section className="flex justify-center mt-15 gap-4 md:gap-15">
         <div className="flex items-center gap-2">
           <FiGrid size={24} />
           <span className="text-lg font-medium">Browse Products</span>
